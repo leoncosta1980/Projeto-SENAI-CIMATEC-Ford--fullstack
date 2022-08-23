@@ -1,0 +1,20 @@
+table{
+  margin:25px;
+  width: 100%;
+}
+
+.table-head{
+  background-color: rgb(5, 16, 163);
+  color:white;
+  text-align: center;
+}
+
+.table-body{
+  text-align: center;
+  font-family: Arial, Helvetica, bold, sans-serif;
+}
+
+.table-foot{
+  background-color: rgb(5, 16, 163);
+}
+

@@ -1,0 +1,17 @@
+#form{
+  padding: 10px;
+  height: 100%;
+  background-color: rgb(222, 224, 226);
+  align-items: center;
+  display: inline-block;
+}
+
+#logo {
+  margin:120px;
+  width: 180px;
+
+}
+
+.btn{
+  width:100%;
+}

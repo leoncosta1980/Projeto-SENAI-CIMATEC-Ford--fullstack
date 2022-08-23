@@ -1,0 +1,90 @@
+<div>
+  <nav class="navbar navbar-light bg-white">
+    <a class="navbar-brand">
+    <i class="fa fa-bars mr-2"(click)="menu.abreMenu()"
+    (keyup.space)="menu.abreMenu()"></i> Menu</a>
+    <div>
+      <a [routerLink]="['/login']"><span class="material-symbols-outlined">logout</span></a>
+    </div>
+  </nav>
+</div>
+
+<div class="title">
+  <h3>Dashboard FORD</h3>
+</div>
+
+<div class="container" *ngIf="vehicleInfos$ | async as vehicleInfos;">
+
+  <div class="row">
+
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          Veículo
+        </div>
+        <div class="card-body">
+          <select class="form-select"  [formControl]="vehicleId">
+            <option *ngFor="let v of allVehicles" [ngValue]="v.id_vehicle_Model">{{v.vehicle_Model}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          Total de Vendas
+        </div>
+        <div class="card-body">
+          <h4>{{vehicleInfos.vehicle_Sales}}</h4>
+          <p class="card-text">Unid.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          Conectados
+        </div>
+        <div class="card-body">
+          <h4>{{vehicleInfos.vehicle_Connected}}</h4>
+          <p class="card-text">Unid.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          Update Software
+        </div>
+        <div class="card-body">
+          <h4>{{vehicleInfos.vehicle_SoftwareUpdate}}</h4>
+          <p class="card-text">Unid.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div>
+    <div class="image">
+      <img src='{{getImageUrl(vehicleInfos)}}'/>
+    </div>
+
+  </div>
+</div>
+
+<div>
+  <app-table></app-table>
+</div>
+
+<app-menu #menu>
+  <img src="assets/img/ford.png" class="logo"/>
+  <ul class="list-unstyled">
+    <li class="line"><a [routerLink]="['/main']">Home</a></li>
+    <li class="line"><a [routerLink]="['/dashboard']">Dashboard</a></li>
+  </ul>
+</app-menu>
+

@@ -1,0 +1,43 @@
+
+<div class="table">
+  <div class="td-page-wrapper" *ngIf="Table$ | async as Table">
+    {{printTable(Table)}}
+    <table>
+      <thead class="table-head">
+        <th>Código - Vin</th>
+        <th></th>
+        <th>Odômetro</th>
+        <th>Nível de Combustível</th>
+        <th>Status</th>
+        <th>Lat.</th>
+        <th>Long.</th>
+      </thead>
+      <tbody class="table-body">
+        <td><input [formControl]="tableInput"></td>
+        <td>
+          <button><span class="material-symbols-outlined">add</span></button>
+          <button><span class="material-symbols-outlined">update</span></button>
+          <button><span class="material-symbols-outlined">delete</span></button>
+        </td>
+        <ng-container *ngIf="Table[0]">
+          <td><strong>{{(Table[0].odometer)}} Km</strong></td>
+          <td><strong>{{(Table[0].fuel_level)}} %</strong></td>
+          <td><strong>{{Table[0].vehicle_status}}</strong></td>
+          <td><strong>{{Table[0].latitude}}</strong></td>
+          <td><strong>{{Table[0].longitude}}</strong></td>
+        </ng-container>
+        <ng-container *ngElse>
+          <td><strong>- Km</strong></td>
+          <td><strong>- %</strong></td>
+          <td><strong>-</strong></td>
+          <td><strong>-</strong></td>
+          <td><strong>-</strong></td>
+        </ng-container>
+      </tbody>
+      <tfoot class="table-foot">
+      </tfoot>
+    </table>
+  </div>
+</div>
+
+

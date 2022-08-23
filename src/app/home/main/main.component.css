@@ -1,0 +1,40 @@
+.navbar{
+  max-width: 100%;
+  padding:15px;
+}
+
+.screen{
+  max-width: 100%;
+  position: relative;
+  align-items: center;
+  margin:auto;
+}
+
+.card{
+  position:absolute;
+  margin: -450px 350px;
+  width:30%;
+  height:75%;
+  opacity: 0.85;
+  font-family: 'Helvetica';
+  font-size: 20px;
+  color:rgb(7, 43, 201);
+}
+
+.logo {
+  margin:5px;
+  width: 150px;
+}
+
+.list-unstyled {
+  display:block;
+  align-items:center;
+}
+
+.line{
+  margin-top:5px;
+  text-align: left;
+  background-color:rgb(177, 182, 181);
+  font-family: 'Helvetica';
+  font-size: 20px;
+}
