@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { pluck } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { VeiculosAPI } from 'models/veiculo.model';
+import { Veiculo } from 'models/veiculo.model';
 
 @Injectable({
   providedIn: 'root'
@@ -28,8 +28,7 @@ export class VehicleInfoService {
   }
 
   getVeiculos() {
-    return this.httpClient.get<VeiculosAPI>(`${environment.API_URL}/vehicleModel`)
-      .pipe(pluck('Vehicles'));
-}
+    return this.httpClient.get<Veiculo[]>(`${environment.API_URL}/vehicleModel`).pipe();
+  }
 
 }
