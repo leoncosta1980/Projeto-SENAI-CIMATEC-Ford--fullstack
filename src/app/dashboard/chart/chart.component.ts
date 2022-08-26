@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { VehicleInfoService } from '../dashboard/services/vehicle-info.service';
-import { Vehicle, VehicleInterface } from 'src/app/models/vehicle-interface';
+import { Vehicle } from 'src/app/models/vehicle-interface';
 
 
 declare var google: any;
@@ -9,9 +8,6 @@ var connected = 1;
 var notConnected = 1;
 var updated = 1;
 var notUpdated = 1;
-var data = [];
-var data2 = [];
-
 
 @Component({
   selector: 'app-chart',
@@ -20,8 +16,6 @@ var data2 = [];
 })
 export class ChartComponent implements OnInit {
 
-  // vehicles: VehicleInterface;
-
   @Input()
   selected: Vehicle;
 
@@ -29,16 +23,7 @@ export class ChartComponent implements OnInit {
 
   private data2;
 
-  constructor(private vehicleInfoService: VehicleInfoService) {
-
-    // this.vehicleInfoService.getVeiculos().subscribe((resAPI) => {
-    //   console.log('resAPI', resAPI)
-      //this.vehicles = resAPI[0];
-      //this.selected = this.vehicles[0];
-
-
-    // });
-
+  constructor() {
 
    }
 
@@ -59,7 +44,7 @@ export class ChartComponent implements OnInit {
 
     this.data = [
       ['Conectados', +connected],
-      ['Não conectados', notConnected],
+      ['Não Conectados', notConnected],
     ];
 
     this.data2 = [
@@ -75,14 +60,12 @@ export class ChartComponent implements OnInit {
       google.charts.load('current', {'packages':['corechart']});
       setTimeout(() => {
         google.charts.setOnLoadCallback(() => {
-          console.log('drawChart');
           self.drawDonutChart();
           self.drawDonutChart2();
         });
-      },1000);
+      },600);
     }
   }
-
 
   drawDonutChart(){
     console.log('drawDonutChart');
@@ -122,7 +105,8 @@ export class ChartComponent implements OnInit {
   getOptions(): any {
     return{
       'width': 250,
-      'height': 150
+      'height': 150,
+      colors: ['#0510a3', '#a7a7a8']
     }
   }
 
