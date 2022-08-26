@@ -3,7 +3,7 @@ const conexao = require('../infraestrutura/conexao')
 class User{
 
   findByUserName(user_name, res){
-    const sql = 'SELECT * FROM user WHERE user_name=?'
+    const sql = 'SELECT user_id, user_name, user_email, password, user_fullName, register_data FROM user WHERE user_name=?'
 
     conexao.query(sql, user_name, (erro, resultados)=>{
       if(erro){
@@ -25,7 +25,7 @@ class User{
   }
 
   listUser(res){
-    const sql = 'SELECT * FROM user'
+    const sql = 'SELECT user_id, user_name, user_email, password, user_fullName, register_data FROM user'
 
     conexao.query(sql, (erro, resultados)=>{
       if(erro){
@@ -36,7 +36,7 @@ class User{
   }
 
   getUserById(id, res){
-    const sql = `SELECT * FROM user WHERE user_id=${id}`
+    const sql = `SELECT user_id, user_name, user_email, password, user_fullName, register_data FROM user WHERE user_id=${id}`
 
     conexao.query(sql, (erro, resultados)=>{
       const user = resultados[0];

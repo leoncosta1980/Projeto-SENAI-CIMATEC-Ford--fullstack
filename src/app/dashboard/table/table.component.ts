@@ -4,6 +4,7 @@ import { FormControl } from '@angular/forms';
 import { tap, switchMap, filter, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { merge } from 'rxjs';
 
+
 const WAIT_TYPING = 300;
 @Component({
   selector: 'app-table',
@@ -28,13 +29,13 @@ export class TableComponent {
     switchMap((typedValue)=>this.tableService.getTable(typedValue))
   );
 
-
   Table$ = merge(this.allTable$, this.filterByInput$);
-  
+
   constructor(private tableService: TableService) {
 
     }
   printTable(value){
-    console.log(value)
+    //console.log(value)
   }
+
   }

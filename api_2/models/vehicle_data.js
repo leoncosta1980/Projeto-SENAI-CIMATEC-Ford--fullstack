@@ -13,9 +13,9 @@ class VehicleData {
   }
 
   listVehicleData(valor, res){
-    let sql = 'SELECT * FROM vehicle_data'
+    let sql = 'SELECT id_vehicle, vehicle_vin, odometer, tire_Pressure, vehicle_status, battery_status, fuel_level, latitude, longitude FROM vehicle_data'
     if (valor) {
-      sql = `SELECT * FROM vehicle_data WHERE vehicle_vin LIKE '%${valor}'`
+      sql = `SELECT id_vehicle, vehicle_vin, odometer, tire_Pressure, vehicle_status, battery_status, fuel_level, latitude, longitude FROM vehicle_data WHERE vehicle_vin LIKE '%${valor}'`
     }
 
     conexao.query(sql, (erro, resultados)=>{
@@ -27,7 +27,7 @@ class VehicleData {
   }
 
   getVehicleDataByID(id, res){
-    const sql = `SELECT * FROM vehicle_data WHERE id_vehicle=${id}`
+    const sql = `SELECT id_vehicle, vehicle_vin, odometer, tire_Pressure, vehicle_status, battery_status, fuel_level, latitude, longitude FROM vehicle_data WHERE id_vehicle=${id}`
 
     conexao.query(sql, (erro, resultados)=>{
       const vehicle_data = resultados[0];

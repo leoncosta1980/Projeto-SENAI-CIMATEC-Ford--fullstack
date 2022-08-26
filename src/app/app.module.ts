@@ -1,3 +1,4 @@
+
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,7 +19,7 @@ import { ChartModule } from './dashboard/chart/chart.module';
     AppRoutingModule,
     HttpClientModule,
     DashboardModule,
-    ChartModule
+    ChartModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

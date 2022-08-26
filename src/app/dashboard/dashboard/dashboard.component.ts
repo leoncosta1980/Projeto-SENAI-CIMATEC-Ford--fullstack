@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getImageUrl(value){
-    console.log('getImageUrl', value);
+    //console.log('getImageUrl', value);
     return `assets/img/${value.vehicle_Model.toLowerCase().replace(' ', '')}.png`;
   }
 

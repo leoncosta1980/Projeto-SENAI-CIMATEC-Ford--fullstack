@@ -1,6 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {  tap, pluck } from 'rxjs/operators';
 import { Table } from '../table';
 
 @Injectable({
@@ -17,4 +16,6 @@ export class TableService {
     return this.httpClient
     .get<Table[]>(`http://localhost:3001/vehicleData/`, { params });
   }
+
+
 }

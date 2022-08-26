@@ -14,7 +14,7 @@ class VehicleModel {
   }
 
   listVehicleModel(res){
-    const sql = 'SELECT * FROM vehicle_model'
+    const sql = 'SELECT id_vehicle_Model, vehicle_Model, vehicle_Sales, vehicle_Connected, vehicle_SoftwareUpdate FROM vehicle_model'
 
     conexao.query(sql, (erro, resultados)=>{
       if(erro){
@@ -25,7 +25,7 @@ class VehicleModel {
   }
 
   getVehicleModelByID(id, res){
-    const sql = `SELECT * FROM vehicle_model WHERE id_vehicle_Model=${id}`
+    const sql = `SELECT id_vehicle_Model, vehicle_Model, vehicle_Sales, vehicle_Connected, vehicle_SoftwareUpdate FROM vehicle_model WHERE id_vehicle_Model=${id}`
 
     conexao.query(sql, (erro, resultados)=>{
       const vehicle_model = resultados[0];
